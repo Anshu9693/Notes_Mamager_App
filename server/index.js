@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 app.use(cookieParser());
-app.use(cors({ origin: "https://notes-mamager-app.vercel.app/", credentials: true }));
+app.use(cors({ origin: "https://notes-mamager-app-nde9.vercel.app", credentials: true }));
 
 const port = process.env.PORT || 5000;
 
