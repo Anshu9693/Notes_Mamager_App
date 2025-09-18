@@ -10,9 +10,25 @@ const cors = require("cors");
 const userAuth = require("./middlewares/user.auth.middleware");
 
 // Configure CORS to allow frontend origin (set FRONTEND_URL in Vercel or .env)
-const FRONTEND = process.env.FRONTEND_URL || "http://localhost:5173";
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://notes-mamager-app-nde9.vercel.app"
+];
 app.use(cookieParser());
-app.use(cors({ origin: FRONTEND, credentials: true }));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps, curl, etc.)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(bodyParser.json());
