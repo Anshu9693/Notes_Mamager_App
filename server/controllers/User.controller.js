@@ -27,11 +27,16 @@ const user = await userModel.create({
     password:hashPassword
 })
 const token = jwt.sign(
-      { id: user._id },
-      process.env.JWT_SECRET,);
-res.cookie("token", token,)
-
-res.status(200).json({token,user})
+  { id: user._id },
+  process.env.JWT_SECRET,
+);
+res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "None",
+  path: "/",
+});
+res.status(200).json({ token, user });
 };
 
 //user login 
@@ -51,22 +56,25 @@ if(!isMatch) {
     return res.status(401).json({ message: "Invalid email or password" });
   } 
 const token = jwt.sign(
-      { id: user._id },
-      process.env.JWT_SECRET,);
-res.cookie("token", token);
-
+  { id: user._id },
+  process.env.JWT_SECRET,
+);
+res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "None",
+  path: "/",
+});
 res.status(200).json({ token, user });
 
 }  
 // veryfy login user
 module.exports.verifyUser = (req, res) => {
-  const token = req.cookies.token; 
+  const token = req.cookies.token;
   if (!token) return res.status(401).json({ message: "Not authenticated" });
-
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    res.cookie(token)
-    res.status(200).json({token, userId: decoded.id });
+    res.status(200).json({ userId: decoded.id });
   } catch (err) {
     res.status(401).json({ message: "Invalid token" });
   }
