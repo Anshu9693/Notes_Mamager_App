@@ -4,6 +4,7 @@
     { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } }
   ],
   "routes": [
+    { "src": "/(.*\\.(js|css|svg|png|jpg|jpeg|ico|json|txt|map))", "dest": "/$1" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

@@ -10,7 +10,7 @@ const cors = require("cors");
 const userAuth = require("./middlewares/user.auth.middleware");
 
 // Configure CORS to allow frontend origin (set FRONTEND_URL in Vercel or .env)
-const FRONTEND = process.env.FRONTEND_URL || process.env.VITE_BASE_URL || "http://localhost:5173";
+const FRONTEND = process.env.FRONTEND_URL || "http://localhost:5173";
 app.use(cookieParser());
 app.use(cors({ origin: FRONTEND, credentials: true }));
 
