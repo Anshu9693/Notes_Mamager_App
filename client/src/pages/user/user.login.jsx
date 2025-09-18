@@ -25,6 +25,9 @@ export default function UserLogin() {
         { withCredentials: true }
       );
   //  console.log("Logged in:", response.data);
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+      setError(null);
       navigate("/note");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed. Try again.");

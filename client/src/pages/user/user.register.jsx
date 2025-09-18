@@ -26,6 +26,8 @@ export default function Signup() {
       );
       
       // console.log("Registered:", response.data);
+      const token = response.data.token;
+      localStorage.setItem("token", token);
 
       navigate("/note");
     } catch (err) {
