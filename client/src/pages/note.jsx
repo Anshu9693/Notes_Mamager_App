@@ -70,13 +70,9 @@ export default function NotePage() {
   // Logout
   const handleLogout = async () => {
     try {
-      await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/api/auth/user/logout`,
-        {},
-        {
-          withCredentials: true,
-        }
-      );
+      await axios.get(`${import.meta.env.VITE_BASE_URL}/api/auth/user/logout`, {
+        withCredentials: true,
+      });
       navigate("/user/login");
     } catch (error) {
       console.error("Logout failed", error);
