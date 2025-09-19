@@ -17,7 +17,7 @@ Base URL: http://localhost:3000
 
 ```
 PORT=3000
-DB_URL=    your backend URL   
+DB_URL=   your Database  URL   
 
 JWT_SECRET=  you can set your own 
 FRONTEND_URL= your frontend url 
