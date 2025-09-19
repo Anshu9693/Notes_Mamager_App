@@ -96,7 +96,7 @@ export default function NotePage() {
         onSubmit={handleSubmit}
         className="bg-white/20 backdrop-blur-lg shadow-lg rounded-2xl p-6 sm:p-8 w-full max-w-lg border border-white/30 mb-10"
       >
-        <h1 className="text-2xl sm:text-3xl font-bold text-center text-white mb-6">
+        <h1 className="text-2xl sm:text-3xl cursor-pointer font-bold text-center text-white mb-6">
           {editingNote ? "✏️ Edit Note" : "📝 Add a New Note"}
         </h1>
 
@@ -150,13 +150,13 @@ export default function NotePage() {
                   <div className="flex gap-2 sm:gap-3">
                     <button
                       onClick={() => startEditing(n)}
-                      className="text-blue-700 hover:text-blue-900 text-base sm:text-lg"
+                      className="text-blue-700 cursor-pointer hover:text-blue-900 text-base sm:text-lg"
                     >
                       ✏️
                     </button>
                     <button
                       onClick={() => deleteNote(n._id)}
-                      className="text-red-700 hover:text-red-900 text-base sm:text-lg"
+                      className="text-red-700 hover:text-red-900 cursor-pointer text-base sm:text-lg"
                     >
                       🗑️
                     </button>

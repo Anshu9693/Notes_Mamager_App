@@ -39,7 +39,7 @@ export default function Signup() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center px-4">
-      <div className="bg-white/20 backdrop-blur-lg shadow-lg rounded-2xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md border border-white/30">
+      <div className=" cursor-pointer bg-white/20 backdrop-blur-lg shadow-lg rounded-2xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md border border-white/30">
         <h1 className="text-xl sm:text-2xl font-bold text-center text-white mb-6">
           ✨ Create an account
         </h1>
