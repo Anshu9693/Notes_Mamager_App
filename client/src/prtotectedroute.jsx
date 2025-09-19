@@ -8,7 +8,7 @@ export default function ProtectedRoute({ children }) {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await axios.get("http://localhost:3000/api/auth/user/verify", {
+        await axios.get(`${process.env.VITE_BASE_URL}/api/auth/user/verify`, {
           withCredentials: true,
         });
         setAuthenticated(true);
