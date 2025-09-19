@@ -25,7 +25,7 @@ export default function NotePage() {
           )
         );
         setEditingNote(null);
-      } else {
+      }  else {
         const response = await axios.post(
           `${import.meta.env.VITE_BASE_URL}/api/notes/create`,
           { title, description },

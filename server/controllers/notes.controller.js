@@ -3,8 +3,12 @@ const NoteModel = require("../models/notes.model");
 const createNote = async (req, res) => {
   try {
     const { title, description } = req.body;
-    const userId = req.user.id;
-    const note = await NoteModel.create({ title, description, user: userId });
+    const userId = req.params.id;
+   const note = await NoteModel.create({
+  title: req.body.title,
+  description: req.body.description,
+  user: req.user.id // <-- This is required!
+});
     res.status(201).json({ data: note });
   } catch (error) {
     console.error(error);
