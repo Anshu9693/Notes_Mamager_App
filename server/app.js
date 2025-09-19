@@ -9,10 +9,9 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const userAuth = require("./middlewares/user.auth.middleware");
 
-// ✅ Allow only deployed frontend origin
 app.use(
   cors({
-    origin: "https://notes-mamager-app-nde9.vercel.app",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );
