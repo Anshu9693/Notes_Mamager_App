@@ -13,6 +13,22 @@ Base URL: http://localhost:3000
    Start server -   npm run dev
   ```
 
+## Server's  .env file 
+
+```
+PORT=3000
+DB_URL=    your backend URL   
+
+JWT_SECRET=  you can set your own 
+FRONTEND_URL= your frontend url 
+```
+
+
+## Client's .env file  
+
+```
+VITE_BASE_URL= {your own backend url }  or http://localhost:3000
+```
 
 
 Only request examples (JSON body) and example responses are listed below for each route. No route code is shown.
